@@ -68,12 +68,12 @@ const Dashboard = () => {
         </div>
 
         {/* Stats Overview */}
-        {!showArchived && <StatsOverview key={refreshKey} />}
+{!showArchived && <StatsOverview key={`stats-${refreshKey}`} />}
 
         {/* Badge Showcase */}
         {!showArchived && (
-          <BadgeShowcase 
-            key={refreshKey} 
+<BadgeShowcase 
+            key={`badges-${refreshKey}`} 
             newBadges={newBadges}
           />
         )}
