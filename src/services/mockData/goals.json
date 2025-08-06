@@ -1,0 +1,57 @@
+[
+  {
+    "Id": 1,
+    "title": "Read for 30 minutes",
+    "description": "Read books or articles to expand knowledge and improve focus",
+    "frequency": "daily",
+    "createdAt": "2024-01-15T08:00:00Z",
+    "isArchived": false,
+    "currentStreak": 12,
+    "bestStreak": 15,
+    "lastCompletedDate": "2024-01-26"
+  },
+  {
+    "Id": 2,
+    "title": "Exercise or go for a walk",
+    "description": "At least 20 minutes of physical activity to stay healthy",
+    "frequency": "daily",
+    "createdAt": "2024-01-10T09:00:00Z",
+    "isArchived": false,
+    "currentStreak": 8,
+    "bestStreak": 21,
+    "lastCompletedDate": "2024-01-26"
+  },
+  {
+    "Id": 3,
+    "title": "Practice meditation",
+    "description": "10 minutes of mindfulness or breathing exercises",
+    "frequency": "daily",
+    "createdAt": "2024-01-20T07:30:00Z",
+    "isArchived": false,
+    "currentStreak": 3,
+    "bestStreak": 5,
+    "lastCompletedDate": "2024-01-25"
+  },
+  {
+    "Id": 4,
+    "title": "Learn a new language",
+    "description": "Study Spanish vocabulary and grammar",
+    "frequency": "daily",
+    "createdAt": "2024-01-05T10:00:00Z",
+    "isArchived": false,
+    "currentStreak": 0,
+    "bestStreak": 7,
+    "lastCompletedDate": null
+  },
+  {
+    "Id": 5,
+    "title": "Weekly meal prep",
+    "description": "Prepare healthy meals for the week ahead",
+    "frequency": "weekly",
+    "createdAt": "2024-01-08T11:00:00Z",
+    "isArchived": false,
+    "currentStreak": 2,
+    "bestStreak": 4,
+    "lastCompletedDate": "2024-01-21"
+  }
+]

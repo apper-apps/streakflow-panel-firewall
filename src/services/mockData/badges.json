@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "type": "streak7",
+    "earnedAt": "2024-01-21T20:30:00Z",
+    "goalId": 1
+  },
+  {
+    "Id": 2,
+    "type": "streak7",
+    "earnedAt": "2024-01-16T07:15:00Z",
+    "goalId": 2
+  },
+  {
+    "Id": 3,
+    "type": "streak30",
+    "earnedAt": "2024-01-25T07:30:00Z",
+    "goalId": 2
+  }
+]
