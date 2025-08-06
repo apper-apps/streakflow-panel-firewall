@@ -85,14 +85,14 @@ const StatsOverview = () => {
   if (loading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-{[1, 2, 3].map(i => (
-          <div key={i} className="backdrop-filter backdrop-blur-lg bg-white/20 border border-white/30 rounded-xl p-6 shadow-xl">
+        {[1, 2, 3].map(i => (
+          <div key={i} className="bg-white rounded-xl p-6 shadow-lg border border-surface-100">
             <div className="flex items-center justify-between mb-4">
-              <div className="h-6 bg-gradient-to-r from-white/30 to-white/50 rounded w-24 animate-pulse backdrop-filter backdrop-blur-sm"></div>
-              <div className="w-10 h-10 bg-gradient-to-r from-white/30 to-white/50 rounded-full animate-pulse backdrop-filter backdrop-blur-sm"></div>
+              <div className="h-6 bg-gradient-to-r from-surface-200 to-surface-300 rounded w-24 animate-pulse"></div>
+              <div className="w-10 h-10 bg-gradient-to-r from-surface-200 to-surface-300 rounded-full animate-pulse"></div>
             </div>
-            <div className="h-8 bg-gradient-to-r from-white/30 to-white/50 rounded w-16 animate-pulse mb-2 backdrop-filter backdrop-blur-sm"></div>
-            <div className="h-4 bg-gradient-to-r from-white/30 to-white/50 rounded w-20 animate-pulse backdrop-filter backdrop-blur-sm"></div>
+            <div className="h-8 bg-gradient-to-r from-surface-200 to-surface-300 rounded w-16 animate-pulse mb-2"></div>
+            <div className="h-4 bg-gradient-to-r from-surface-200 to-surface-300 rounded w-20 animate-pulse"></div>
           </div>
         ))}
       </div>
@@ -103,12 +103,12 @@ const StatsOverview = () => {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
       {statCards.map((stat, index) => (
         <Card 
-key={stat.title} 
-          className="p-6 backdrop-filter backdrop-blur-lg bg-white/20 border border-white/30 hover:bg-white/25 hover:shadow-2xl transition-all duration-300"
+          key={stat.title} 
+          className={`p-6 bg-gradient-to-br ${stat.bgGradient} border-0 hover:shadow-xl transition-all duration-300`}
         >
           <div className="flex items-center justify-between mb-4">
-<h3 className="font-medium text-white/90 drop-shadow">{stat.title}</h3>
-            <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${stat.gradient} flex items-center justify-center backdrop-filter backdrop-blur-sm border border-white/30`}>
+            <h3 className="font-medium text-gray-700">{stat.title}</h3>
+            <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${stat.gradient} flex items-center justify-center`}>
               <ApperIcon 
                 name={stat.icon} 
                 size={20} 
@@ -116,10 +116,10 @@ key={stat.title}
               />
             </div>
           </div>
-<div className="text-3xl font-bold text-white mb-1 drop-shadow-lg">
+          <div className="text-3xl font-bold text-gray-800 mb-1">
             {stat.value}
           </div>
-<div className="text-sm text-white/80 drop-shadow">
+          <div className="text-sm text-gray-600">
             {stat.title === "Active Goals" && "Track your habits"}
             {stat.title === "Completed Today" && `of ${stats.totalGoals} goals`}
             {stat.title === "Total Streak Days" && "Keep the momentum"}

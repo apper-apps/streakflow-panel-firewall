@@ -55,37 +55,37 @@ const GoalCard = React.forwardRef(({
       transition={{ duration: 0.3 }}
     >
       <Card className={cn(
-"p-6 backdrop-filter backdrop-blur-lg bg-white/20 border border-white/30 hover:bg-white/25 hover:border-white/40 transition-all duration-300 shadow-xl hover:shadow-2xl",
-        isCompleted && "bg-gradient-to-r from-emerald-400/20 to-green-400/20 border-emerald-300/40 shadow-emerald-500/20",
-        goal.isArchived && "opacity-60"
+        "p-6 hover:shadow-xl transition-all duration-300",
+        isCompleted && "bg-gradient-to-r from-success-50 to-emerald-50 border-success-200",
+        goal.isArchived && "opacity-75"
       )}>
         <div className="flex items-start justify-between mb-4">
           <div className="flex-1">
-<h3 className={cn(
-              "text-lg font-semibold mb-2 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]",
-              isCompleted && "text-emerald-50",
-              goal.isArchived && "text-gray-100"
+            <h3 className={cn(
+              "text-lg font-semibold mb-2",
+              isCompleted && "text-success-700",
+              goal.isArchived && "text-gray-500"
             )}>
               {goal.title}
             </h3>
             {goal.description && (
-<p className={cn(
-                "text-white text-sm mb-3 drop-shadow-[0_1px_3px_rgba(0,0,0,0.7)]",
-                goal.isArchived && "text-white/90"
+              <p className={cn(
+                "text-gray-600 text-sm mb-3",
+                goal.isArchived && "text-gray-400"
               )}>
                 {goal.description}
               </p>
             )}
             <div className="flex items-center gap-3 text-sm">
               <span className={cn(
-"px-2 py-1 rounded-full text-xs font-medium",
-goal.frequency === "daily" 
-                  ? "bg-blue-600/50 text-blue-50 border border-blue-400/60 backdrop-filter backdrop-blur-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]"
-                  : "bg-green-600/50 text-green-50 border border-green-400/60 backdrop-filter backdrop-blur-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]"
+                "px-2 py-1 rounded-full text-xs font-medium",
+                goal.frequency === "daily" 
+                  ? "bg-blue-100 text-blue-700"
+                  : "bg-green-100 text-green-700"
               )}>
                 {goal.frequency}
               </span>
-<span className="text-white/90 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
+              <span className="text-gray-500">
                 Created {format(new Date(goal.createdAt), "MMM d")}
               </span>
             </div>
@@ -93,19 +93,19 @@ goal.frequency === "daily"
           
           {!goal.isArchived && (
             <div className="flex items-center gap-2">
-<Button
+              <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => onViewCalendar(goal.Id)}
-                className="text-white/70 hover:text-white hover:bg-white/20 backdrop-filter backdrop-blur-sm border border-white/20"
+                className="text-gray-400 hover:text-gray-600"
               >
                 <ApperIcon name="Calendar" size={18} />
               </Button>
-<Button
+              <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => setShowConfirmDelete(true)}
-                className="text-white/70 hover:text-red-200 hover:bg-red-500/20 backdrop-filter backdrop-blur-sm border border-white/20"
+                className="text-gray-400 hover:text-red-500"
               >
                 <ApperIcon name="Archive" size={18} />
               </Button>
@@ -132,8 +132,8 @@ goal.frequency === "daily"
                 {goal.currentStreak} day{goal.currentStreak !== 1 ? "s" : ""}
               </span>
             </div>
-{goal.bestStreak > goal.currentStreak && (
-              <span className="text-xs text-white/90 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
+            {goal.bestStreak > goal.currentStreak && (
+              <span className="text-xs text-gray-500">
                 Best: {goal.bestStreak}
               </span>
             )}
@@ -170,30 +170,30 @@ goal.frequency === "daily"
 
         {/* Completion Status */}
         {!goal.isArchived && (
-<div className="text-xs text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
+          <div className="text-xs text-gray-500">
             {isCompleted ? (
-              <span className="text-emerald-100 font-medium drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+              <span className="text-success-600 font-medium">
                 ✓ Completed today
               </span>
             ) : canCompleteToday() ? (
-              <span className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
+              <span>
                 Click to mark as complete
               </span>
             ) : goal.frequency === "weekly" ? (
-              <span className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
+              <span>
                 Available in {7 - Math.floor((new Date() - new Date(goal.lastCompletedDate)) / (1000 * 60 * 60 * 24))} days
               </span>
             ) : null}
           </div>
         )}
 
-{showArchive && goal.isArchived && (
+        {showArchive && goal.isArchived && (
           <div className="mt-4 pt-4 border-t border-surface-200">
             <Button
-variant="ghost"
+              variant="ghost"
               size="sm"
               onClick={() => onArchive(goal.Id)}
-              className="text-indigo-100 hover:text-white hover:bg-indigo-500/30 backdrop-filter backdrop-blur-sm border border-white/30 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]"
+              className="text-primary-600 hover:text-primary-700"
             >
               <ApperIcon name="RotateCcw" size={14} className="mr-2" />
               Restore Goal
@@ -202,17 +202,17 @@ variant="ghost"
         )}
 
         {/* Confirm Delete Modal */}
-{showConfirmDelete && (
-          <div className="fixed inset-0 bg-black/70 backdrop-blur-lg z-50 flex items-center justify-center p-4">
-            <div className="backdrop-filter backdrop-blur-xl bg-white/30 border border-white/40 rounded-3xl p-6 max-w-sm w-full shadow-2xl">
+        {showConfirmDelete && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+            <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl">
               <div className="text-center mb-6">
-                <div className="w-12 h-12 bg-red-600/40 backdrop-filter backdrop-blur-sm border border-red-400/60 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <ApperIcon name="Archive" size={24} className="text-red-100" />
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <ApperIcon name="Archive" size={24} className="text-red-600" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   Archive Goal?
                 </h3>
-                <p className="text-white text-sm drop-shadow-[0_1px_3px_rgba(0,0,0,0.7)]">
+                <p className="text-gray-600 text-sm">
                   This will move "{goal.title}" to your archived goals. You can restore it later if needed.
                 </p>
               </div>
@@ -232,7 +232,7 @@ variant="ghost"
                     onArchive(goal.Id);
                     setShowConfirmDelete(false);
                   }}
-                  className="flex-1 bg-red-600/90 hover:bg-red-600 backdrop-filter backdrop-blur-sm border border-red-400/60"
+                  className="flex-1 bg-red-500 hover:bg-red-600"
                 >
                   Archive
                 </Button>

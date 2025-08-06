@@ -5,15 +5,15 @@ import ApperIcon from "@/components/ApperIcon";
 const Error = ({ message, onRetry }) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-[400px] text-center">
-<div className="w-16 h-16 bg-red-500/20 backdrop-filter backdrop-blur-sm border border-red-300/40 rounded-full flex items-center justify-center mb-6">
-        <ApperIcon name="AlertTriangle" size={32} className="text-red-200" />
+      <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
+        <ApperIcon name="AlertTriangle" size={32} className="text-red-600" />
       </div>
       
-<h3 className="text-xl font-semibold text-white mb-2 drop-shadow-lg">
+      <h3 className="text-xl font-semibold text-gray-800 mb-2">
         Something went wrong
       </h3>
       
-<p className="text-white/80 mb-6 max-w-md">
+      <p className="text-gray-600 mb-6 max-w-md">
         {message || "We encountered an error while loading your goals. Please try again."}
       </p>
       

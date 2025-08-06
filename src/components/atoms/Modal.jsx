@@ -38,8 +38,8 @@ const Modal = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-xl z-50"
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
             onClick={onClose}
           />
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -48,8 +48,8 @@ transition={{ duration: 0.2 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.2 }}
-className={cn(
-                "relative w-full rounded-3xl backdrop-filter backdrop-blur-xl bg-white/20 shadow-2xl border border-white/30",
+              className={cn(
+                "relative w-full rounded-2xl bg-white shadow-2xl border border-surface-100",
                 sizes[size],
                 className
               )}
@@ -57,12 +57,12 @@ className={cn(
             >
               {title && (
                 <div className="flex items-center justify-between p-6 border-b border-surface-100">
-<h2 className="text-xl font-semibold text-white drop-shadow-lg">{title}</h2>
+                  <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
                   <button
                     onClick={onClose}
                     className="p-2 hover:bg-surface-50 rounded-lg transition-colors duration-200"
->
-                    <ApperIcon name="X" size={20} className="text-white/70 hover:text-white" />
+                  >
+                    <ApperIcon name="X" size={20} className="text-gray-500" />
                   </button>
                 </div>
               )}

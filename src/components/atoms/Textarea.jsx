@@ -9,22 +9,22 @@ const Textarea = forwardRef(({
 }, ref) => {
   return (
     <div className="space-y-1">
-{label && (
-        <label className="block text-sm font-medium text-white mb-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
+      {label && (
+        <label className="block text-sm font-medium text-gray-700 mb-2">
           {label}
         </label>
       )}
-<textarea
+      <textarea
         className={cn(
-          "flex min-h-[80px] w-full rounded-lg backdrop-filter backdrop-blur-lg bg-white/25 border border-white/40 px-3 py-2 text-sm text-white placeholder:text-white/80 transition-all duration-200 focus:bg-white/30 focus:border-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 disabled:cursor-not-allowed disabled:opacity-50 resize-none",
-          error && "border-red-400/70 focus:border-red-400 focus:ring-red-400/30",
+          "flex min-h-[80px] w-full rounded-lg border border-surface-300 bg-white px-3 py-2 text-sm transition-all duration-200 placeholder:text-gray-500 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 disabled:cursor-not-allowed disabled:opacity-50 resize-none",
+          error && "border-red-500 focus:border-red-500 focus:ring-red-500/20",
           className
         )}
         ref={ref}
         {...props}
       />
-{error && (
-        <p className="text-sm text-red-100 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">{error}</p>
+      {error && (
+        <p className="text-sm text-red-600">{error}</p>
       )}
     </div>
   );

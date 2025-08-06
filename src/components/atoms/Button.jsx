@@ -8,12 +8,12 @@ const Button = forwardRef(({
   children,
   ...props 
 }, ref) => {
-const variants = {
-    primary: "backdrop-filter backdrop-blur-lg bg-gradient-to-r from-indigo-500/80 to-purple-500/80 hover:from-indigo-500 hover:to-purple-500 text-white shadow-xl hover:shadow-2xl border border-white/30 hover:border-white/40",
-    secondary: "backdrop-filter backdrop-blur-lg bg-white/20 hover:bg-white/30 text-white border border-white/30 hover:border-white/40 shadow-lg hover:shadow-xl",
-    success: "backdrop-filter backdrop-blur-lg bg-gradient-to-r from-emerald-500/80 to-green-500/80 hover:from-emerald-500 hover:to-green-500 text-white shadow-xl hover:shadow-2xl border border-white/30 hover:border-white/40",
-    accent: "backdrop-filter backdrop-blur-lg bg-gradient-to-r from-amber-500/80 to-orange-500/80 hover:from-amber-500 hover:to-orange-500 text-white shadow-xl hover:shadow-2xl border border-white/30 hover:border-white/40",
-    ghost: "backdrop-filter backdrop-blur-sm bg-transparent hover:bg-white/20 text-white/80 hover:text-white border border-transparent hover:border-white/20"
+  const variants = {
+    primary: "bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white shadow-lg hover:shadow-xl",
+    secondary: "bg-white hover:bg-surface-50 text-gray-700 border border-surface-200 hover:border-surface-300 shadow-sm hover:shadow-md",
+    success: "bg-gradient-to-r from-success-500 to-success-600 hover:from-success-600 hover:to-success-700 text-white shadow-lg hover:shadow-xl",
+    accent: "bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white shadow-lg hover:shadow-xl",
+    ghost: "bg-transparent hover:bg-surface-50 text-gray-700 hover:text-gray-900"
   };
 
   const sizes = {
@@ -25,8 +25,8 @@ const variants = {
 
   return (
     <button
-className={cn(
-        "inline-flex items-center justify-center font-medium transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02] active:scale-[0.98]",
+      className={cn(
+        "inline-flex items-center justify-center font-medium transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02] active:scale-[0.98]",
         variants[variant],
         sizes[size],
         className

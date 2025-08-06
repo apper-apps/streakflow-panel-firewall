@@ -56,10 +56,10 @@ const BadgeCard = ({ badge, isNew = false }) => {
         delay: isNew ? 0.2 : 0 
       }}
     >
-<Card className={cn(
-        "p-4 text-center relative overflow-hidden backdrop-filter backdrop-blur-lg bg-white/20 border border-white/30 hover:bg-white/25 transition-all duration-300",
+      <Card className={cn(
+        "p-4 text-center relative overflow-hidden",
         `bg-gradient-to-br ${config.bgGradient}`,
-        isNew && "ring-2 ring-amber-400/60 ring-offset-2 ring-offset-transparent"
+        isNew && "ring-2 ring-accent-500 ring-offset-2"
       )}>
         {isNew && (
           <div className="absolute inset-0 badge-shine" />
@@ -77,15 +77,15 @@ const BadgeCard = ({ badge, isNew = false }) => {
             />
           </div>
           
-<h3 className="font-semibold text-white mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          <h3 className="font-semibold text-gray-800 mb-1">
             {config.name}
           </h3>
           
-<p className="text-sm text-white mb-2 drop-shadow-[0_1px_3px_rgba(0,0,0,0.7)]">
+          <p className="text-sm text-gray-600 mb-2">
             {config.description}
           </p>
           
-<p className="text-xs text-white/95 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
+          <p className="text-xs text-gray-500">
             Earned {format(new Date(badge.earnedAt), "MMM d, yyyy")}
           </p>
         </div>
