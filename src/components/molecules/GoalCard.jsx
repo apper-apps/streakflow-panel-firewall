@@ -62,30 +62,30 @@ const GoalCard = React.forwardRef(({
         <div className="flex items-start justify-between mb-4">
           <div className="flex-1">
 <h3 className={cn(
-              "text-lg font-semibold mb-2 text-white drop-shadow-lg",
-              isCompleted && "text-emerald-100",
-              goal.isArchived && "text-gray-200"
+              "text-lg font-semibold mb-2 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]",
+              isCompleted && "text-emerald-50",
+              goal.isArchived && "text-gray-100"
             )}>
               {goal.title}
             </h3>
             {goal.description && (
 <p className={cn(
-                "text-white/80 text-sm mb-3 drop-shadow",
-                goal.isArchived && "text-white/60"
+                "text-white text-sm mb-3 drop-shadow-[0_1px_3px_rgba(0,0,0,0.7)]",
+                goal.isArchived && "text-white/90"
               )}>
                 {goal.description}
               </p>
             )}
             <div className="flex items-center gap-3 text-sm">
               <span className={cn(
-                "px-2 py-1 rounded-full text-xs font-medium",
+"px-2 py-1 rounded-full text-xs font-medium",
 goal.frequency === "daily" 
-                  ? "bg-blue-500/30 text-blue-100 border border-blue-300/40 backdrop-filter backdrop-blur-sm"
-                  : "bg-green-500/30 text-green-100 border border-green-300/40 backdrop-filter backdrop-blur-sm"
+                  ? "bg-blue-600/50 text-blue-50 border border-blue-400/60 backdrop-filter backdrop-blur-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]"
+                  : "bg-green-600/50 text-green-50 border border-green-400/60 backdrop-filter backdrop-blur-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]"
               )}>
                 {goal.frequency}
               </span>
-              <span className="text-gray-500">
+<span className="text-white/90 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
                 Created {format(new Date(goal.createdAt), "MMM d")}
               </span>
             </div>
@@ -133,7 +133,7 @@ goal.frequency === "daily"
               </span>
             </div>
 {goal.bestStreak > goal.currentStreak && (
-              <span className="text-xs text-white/60 drop-shadow">
+              <span className="text-xs text-white/90 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
                 Best: {goal.bestStreak}
               </span>
             )}
@@ -170,17 +170,17 @@ goal.frequency === "daily"
 
         {/* Completion Status */}
         {!goal.isArchived && (
-<div className="text-xs text-white/70">
+<div className="text-xs text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
             {isCompleted ? (
-              <span className="text-emerald-200 font-medium drop-shadow">
+              <span className="text-emerald-100 font-medium drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                 ✓ Completed today
               </span>
             ) : canCompleteToday() ? (
-              <span>
+              <span className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
                 Click to mark as complete
               </span>
             ) : goal.frequency === "weekly" ? (
-              <span>
+              <span className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
                 Available in {7 - Math.floor((new Date() - new Date(goal.lastCompletedDate)) / (1000 * 60 * 60 * 24))} days
               </span>
             ) : null}
@@ -193,7 +193,7 @@ goal.frequency === "daily"
 variant="ghost"
               size="sm"
               onClick={() => onArchive(goal.Id)}
-              className="text-indigo-200 hover:text-white hover:bg-indigo-500/20 backdrop-filter backdrop-blur-sm border border-white/20"
+              className="text-indigo-100 hover:text-white hover:bg-indigo-500/30 backdrop-filter backdrop-blur-sm border border-white/30 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]"
             >
               <ApperIcon name="RotateCcw" size={14} className="mr-2" />
               Restore Goal
@@ -203,16 +203,16 @@ variant="ghost"
 
         {/* Confirm Delete Modal */}
 {showConfirmDelete && (
-          <div className="fixed inset-0 bg-black/60 backdrop-blur-lg z-50 flex items-center justify-center p-4">
-            <div className="backdrop-filter backdrop-blur-xl bg-white/20 border border-white/30 rounded-3xl p-6 max-w-sm w-full shadow-2xl">
+          <div className="fixed inset-0 bg-black/70 backdrop-blur-lg z-50 flex items-center justify-center p-4">
+            <div className="backdrop-filter backdrop-blur-xl bg-white/30 border border-white/40 rounded-3xl p-6 max-w-sm w-full shadow-2xl">
               <div className="text-center mb-6">
-                <div className="w-12 h-12 bg-red-500/20 backdrop-filter backdrop-blur-sm border border-red-300/40 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <ApperIcon name="Archive" size={24} className="text-red-200" />
+                <div className="w-12 h-12 bg-red-600/40 backdrop-filter backdrop-blur-sm border border-red-400/60 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <ApperIcon name="Archive" size={24} className="text-red-100" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2 drop-shadow-lg">
+                <h3 className="text-lg font-semibold text-white mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                   Archive Goal?
                 </h3>
-                <p className="text-white/80 text-sm">
+                <p className="text-white text-sm drop-shadow-[0_1px_3px_rgba(0,0,0,0.7)]">
                   This will move "{goal.title}" to your archived goals. You can restore it later if needed.
                 </p>
               </div>
@@ -232,7 +232,7 @@ variant="ghost"
                     onArchive(goal.Id);
                     setShowConfirmDelete(false);
                   }}
-                  className="flex-1 bg-red-500/80 hover:bg-red-500 backdrop-filter backdrop-blur-sm border border-red-300/40"
+                  className="flex-1 bg-red-600/90 hover:bg-red-600 backdrop-filter backdrop-blur-sm border border-red-400/60"
                 >
                   Archive
                 </Button>

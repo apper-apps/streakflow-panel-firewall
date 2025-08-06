@@ -42,7 +42,7 @@ const Dashboard = () => {
               StreakFlow
             </h1>
             <p className="text-gray-600 text-lg">
-              Build consistent habits, one day at a time
+Build consistent habits, one day at a time
             </p>
           </div>
           <div className="flex gap-3">
@@ -81,7 +81,7 @@ const Dashboard = () => {
         {/* Goals Section */}
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-gray-800 mb-6">
-            {showArchived ? "Archived Goals" : "Today's Goals"}
+{showArchived ? "Archived Goals" : "Today's Goals"}
           </h2>
           <GoalList
             key={`${refreshKey}-${showArchived}`}

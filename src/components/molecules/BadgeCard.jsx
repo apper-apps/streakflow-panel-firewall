@@ -77,15 +77,15 @@ const BadgeCard = ({ badge, isNew = false }) => {
             />
           </div>
           
-<h3 className="font-semibold text-white mb-1 drop-shadow-lg">
+<h3 className="font-semibold text-white mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             {config.name}
           </h3>
           
-<p className="text-sm text-white/90 mb-2 drop-shadow">
+<p className="text-sm text-white mb-2 drop-shadow-[0_1px_3px_rgba(0,0,0,0.7)]">
             {config.description}
           </p>
           
-<p className="text-xs text-white/70 drop-shadow">
+<p className="text-xs text-white/95 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
             Earned {format(new Date(badge.earnedAt), "MMM d, yyyy")}
           </p>
         </div>

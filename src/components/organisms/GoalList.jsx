@@ -172,7 +172,7 @@ const GoalList = ({ onAddGoal, showArchived = false, onBadgeEarned }) => {
   }
 
   return (
-<div className="space-y-6 p-6 backdrop-filter backdrop-blur-lg bg-white/10 rounded-3xl border border-white/20 shadow-2xl">
+<div className="space-y-6 p-6 backdrop-filter backdrop-blur-lg bg-white/15 rounded-3xl border border-white/25 shadow-2xl">
       <AnimatePresence mode="popLayout">
         {filteredGoals.map(goal => (
           <GoalCard
