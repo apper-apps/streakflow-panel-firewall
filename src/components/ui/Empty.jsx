@@ -11,15 +11,15 @@ const Empty = ({
 }) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-[400px] text-center">
-      <div className="w-20 h-20 bg-gradient-to-r from-primary-100 to-secondary-100 rounded-full flex items-center justify-center mb-6">
-        <ApperIcon name={icon} size={40} className="text-primary-600" />
+<div className="w-20 h-20 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 backdrop-filter backdrop-blur-sm border border-white/30 rounded-full flex items-center justify-center mb-6">
+        <ApperIcon name={icon} size={40} className="text-indigo-200" />
       </div>
       
-      <h3 className="text-2xl font-semibold text-gray-800 mb-3">
+<h3 className="text-2xl font-semibold text-white mb-3 drop-shadow-lg">
         {title}
       </h3>
       
-      <p className="text-gray-600 mb-8 max-w-md text-lg">
+<p className="text-white/80 mb-8 max-w-md text-lg">
         {description}
       </p>
       

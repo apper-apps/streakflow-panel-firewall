@@ -10,24 +10,24 @@ const Select = forwardRef(({
 }, ref) => {
   return (
     <div className="space-y-1">
-      {label && (
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+{label && (
+        <label className="block text-sm font-medium text-white/90 mb-2 drop-shadow">
           {label}
         </label>
       )}
-      <select
+<select
         className={cn(
-          "flex w-full rounded-lg border border-surface-300 bg-white px-3 py-2 text-sm transition-all duration-200 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 disabled:cursor-not-allowed disabled:opacity-50",
-          error && "border-red-500 focus:border-red-500 focus:ring-red-500/20",
+          "flex w-full rounded-lg backdrop-filter backdrop-blur-lg bg-white/20 border border-white/30 px-3 py-2 text-sm text-white transition-all duration-200 focus:bg-white/25 focus:border-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 disabled:cursor-not-allowed disabled:opacity-50",
+          error && "border-red-400/60 focus:border-red-400 focus:ring-red-400/20",
           className
         )}
         ref={ref}
         {...props}
       >
-        {children}
+{children}
       </select>
       {error && (
-        <p className="text-sm text-red-600">{error}</p>
+        <p className="text-sm text-red-200 drop-shadow">{error}</p>
       )}
     </div>
   );

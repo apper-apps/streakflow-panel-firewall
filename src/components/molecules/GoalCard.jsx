@@ -55,23 +55,23 @@ const GoalCard = React.forwardRef(({
       transition={{ duration: 0.3 }}
     >
       <Card className={cn(
-        "p-6 hover:shadow-xl transition-all duration-300",
-        isCompleted && "bg-gradient-to-r from-success-50 to-emerald-50 border-success-200",
-        goal.isArchived && "opacity-75"
+"p-6 backdrop-filter backdrop-blur-lg bg-white/20 border border-white/30 hover:bg-white/25 hover:border-white/40 transition-all duration-300 shadow-xl hover:shadow-2xl",
+        isCompleted && "bg-gradient-to-r from-emerald-400/20 to-green-400/20 border-emerald-300/40 shadow-emerald-500/20",
+        goal.isArchived && "opacity-60"
       )}>
         <div className="flex items-start justify-between mb-4">
           <div className="flex-1">
-            <h3 className={cn(
-              "text-lg font-semibold mb-2",
-              isCompleted && "text-success-700",
-              goal.isArchived && "text-gray-500"
+<h3 className={cn(
+              "text-lg font-semibold mb-2 text-white drop-shadow-lg",
+              isCompleted && "text-emerald-100",
+              goal.isArchived && "text-gray-200"
             )}>
               {goal.title}
             </h3>
             {goal.description && (
-              <p className={cn(
-                "text-gray-600 text-sm mb-3",
-                goal.isArchived && "text-gray-400"
+<p className={cn(
+                "text-white/80 text-sm mb-3 drop-shadow",
+                goal.isArchived && "text-white/60"
               )}>
                 {goal.description}
               </p>
@@ -79,9 +79,9 @@ const GoalCard = React.forwardRef(({
             <div className="flex items-center gap-3 text-sm">
               <span className={cn(
                 "px-2 py-1 rounded-full text-xs font-medium",
-                goal.frequency === "daily" 
-                  ? "bg-blue-100 text-blue-700"
-                  : "bg-green-100 text-green-700"
+goal.frequency === "daily" 
+                  ? "bg-blue-500/30 text-blue-100 border border-blue-300/40 backdrop-filter backdrop-blur-sm"
+                  : "bg-green-500/30 text-green-100 border border-green-300/40 backdrop-filter backdrop-blur-sm"
               )}>
                 {goal.frequency}
               </span>
@@ -93,19 +93,19 @@ const GoalCard = React.forwardRef(({
           
           {!goal.isArchived && (
             <div className="flex items-center gap-2">
-              <Button
+<Button
                 variant="ghost"
                 size="icon"
                 onClick={() => onViewCalendar(goal.Id)}
-                className="text-gray-400 hover:text-gray-600"
+                className="text-white/70 hover:text-white hover:bg-white/20 backdrop-filter backdrop-blur-sm border border-white/20"
               >
                 <ApperIcon name="Calendar" size={18} />
               </Button>
-              <Button
+<Button
                 variant="ghost"
                 size="icon"
                 onClick={() => setShowConfirmDelete(true)}
-                className="text-gray-400 hover:text-red-500"
+                className="text-white/70 hover:text-red-200 hover:bg-red-500/20 backdrop-filter backdrop-blur-sm border border-white/20"
               >
                 <ApperIcon name="Archive" size={18} />
               </Button>
@@ -132,8 +132,8 @@ const GoalCard = React.forwardRef(({
                 {goal.currentStreak} day{goal.currentStreak !== 1 ? "s" : ""}
               </span>
             </div>
-            {goal.bestStreak > goal.currentStreak && (
-              <span className="text-xs text-gray-500">
+{goal.bestStreak > goal.currentStreak && (
+              <span className="text-xs text-white/60 drop-shadow">
                 Best: {goal.bestStreak}
               </span>
             )}
@@ -170,9 +170,9 @@ const GoalCard = React.forwardRef(({
 
         {/* Completion Status */}
         {!goal.isArchived && (
-          <div className="text-xs text-gray-500">
+<div className="text-xs text-white/70">
             {isCompleted ? (
-              <span className="text-success-600 font-medium">
+              <span className="text-emerald-200 font-medium drop-shadow">
                 ✓ Completed today
               </span>
             ) : canCompleteToday() ? (
@@ -187,13 +187,13 @@ const GoalCard = React.forwardRef(({
           </div>
         )}
 
-        {showArchive && goal.isArchived && (
+{showArchive && goal.isArchived && (
           <div className="mt-4 pt-4 border-t border-surface-200">
             <Button
-              variant="ghost"
+variant="ghost"
               size="sm"
               onClick={() => onArchive(goal.Id)}
-              className="text-primary-600 hover:text-primary-700"
+              className="text-indigo-200 hover:text-white hover:bg-indigo-500/20 backdrop-filter backdrop-blur-sm border border-white/20"
             >
               <ApperIcon name="RotateCcw" size={14} className="mr-2" />
               Restore Goal
@@ -202,17 +202,17 @@ const GoalCard = React.forwardRef(({
         )}
 
         {/* Confirm Delete Modal */}
-        {showConfirmDelete && (
-          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl">
+{showConfirmDelete && (
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-lg z-50 flex items-center justify-center p-4">
+            <div className="backdrop-filter backdrop-blur-xl bg-white/20 border border-white/30 rounded-3xl p-6 max-w-sm w-full shadow-2xl">
               <div className="text-center mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <ApperIcon name="Archive" size={24} className="text-red-600" />
+                <div className="w-12 h-12 bg-red-500/20 backdrop-filter backdrop-blur-sm border border-red-300/40 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <ApperIcon name="Archive" size={24} className="text-red-200" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2 drop-shadow-lg">
                   Archive Goal?
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-white/80 text-sm">
                   This will move "{goal.title}" to your archived goals. You can restore it later if needed.
                 </p>
               </div>
@@ -232,7 +232,7 @@ const GoalCard = React.forwardRef(({
                     onArchive(goal.Id);
                     setShowConfirmDelete(false);
                   }}
-                  className="flex-1 bg-red-500 hover:bg-red-600"
+                  className="flex-1 bg-red-500/80 hover:bg-red-500 backdrop-filter backdrop-blur-sm border border-red-300/40"
                 >
                   Archive
                 </Button>
